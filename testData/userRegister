@@ -1,0 +1,34 @@
+[{
+  "name": "Alice Admin",
+  "email": "alice.admin@example.com",
+  "password": "Admin@1234",
+  "companyName": "AlphaCorp"
+},
+{
+    "name": "Neeraj Khalkar",
+    "email": "neeraj@example.com",
+    "password": "securePassword123",
+    "companyName": "OpenAI CRM"
+  },
+  {
+    "name": "Bob Sales",
+    "email": "bob.sales@example.com",
+    "password": "Sales@4567",
+    "companyName": "AlphaCorp"
+  },
+  {
+    "name": "Carol Manager",
+    "email": "carol.manager@example.com",
+    "password": "Manager#789",
+    "companyName": "AlphaCorp"
+  },
+  {
+    "name": "Eva Sales",
+    "email": "eva.sales@example.com",
+    "password": "EvaSales321",
+    "companyName": "BetaSolutions"
+  }
+  
+
+  
+]
