@@ -31,18 +31,19 @@ export const leadController = async (req: AuthenticatedRequest, res: Response) =
     }
 
     // Validate required fields
-    if (!customerId || !assignedTo || !status) {
-      res.status(400).json({ message: "customerId, assignedTo, and status are required" });
+    // if (!customerId || !assignedTo || !status) {
+    //   res.status(400).json({ message: "customerId, assignedTo, and status are required" });
+    //   return
+    // }
+
+    const validStatuses = ["new", "qualified", "converted", "lost"];
+
+    if (!validStatuses.includes(status)) {
+      res.status(400).json({ message: "Invalid Lead status" });
       return
     }
 
     const tenantId = req.user.tenantId;
-
-    const validStatuses = ["new", "qulified", "converted", "lost"];
-
-    if (!validStatuses.includes(status)) {
-      res.status(400).json({ message: "Invalid Lead status" })
-    }
 
     const newLead = await Lead.create({
       tenantId,
@@ -56,6 +57,7 @@ export const leadController = async (req: AuthenticatedRequest, res: Response) =
       message: "Lead is Created Successfully",
       lead: newLead,
     });
+
     return
 
   } catch (error) {

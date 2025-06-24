@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import { z } from "zod";
 
 const tenantSchema = new mongoose.Schema({
     name: {
@@ -23,4 +23,11 @@ const tenantSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-export default mongoose.models.Tenant || mongoose.model("Tenant", tenantSchema);
+export default mongoose.model("Tenant", tenantSchema);
+
+export const createTenantSchema = z.object({
+    name: z.string().min(2, "Name is too short"),
+    email: z.string().email("Invalid email"),
+    domain: z.string().min(2, "Domain is too short"),
+    plan: z.enum(["free", "pro", "enterprise"]).default("free"),
+});

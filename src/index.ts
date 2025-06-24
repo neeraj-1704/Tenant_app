@@ -21,9 +21,10 @@ import {
     routerUser,
     customerUser,
     leadRoute,
-    taskRoute
+    taskRoute,
+    tenantRoute
 } from './routes/userRoute';
-
+app.use('/api/v1/tenant', tenantRoute);
 app.use('/api/v1/users', routerUser); // Better RESTful route prefix
 app.use('/api/v1/customer', customerUser);
 app.use('/api/v1/lead', leadRoute);

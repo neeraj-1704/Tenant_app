@@ -1,0 +1,43 @@
+[{
+  "tenantId": "666b1234e82b0a56c1e12345",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "secret123",
+  "role": "sales",
+  "status": "active"
+},
+{
+  "tenantId": "685ab2cb46eea8822fdbb1bd",
+  "name": "John Smith",
+  "email": "john.smith@example.com",
+  "password": "SecurePass@123",
+  "role": "sales",
+  "status": "active"
+},
+{
+  "tenantId": "685ab2cb46eea8822fdbb1bd",
+  "name": "John Smith",
+  "email": "john.smith@example.com",
+  "password": "SecurePass@123",
+  "role": "sales",
+  "status": "active"
+},
+{
+  "tenantId": "685ab2cb46eea8822fdbb1bd",
+  "name": "Emily Johnson",
+  "email": "emily.j@example.com",
+  "password": "Pass@456",
+  "role": "sales",
+  "status": "inactive"
+},
+{
+  "tenantId": "685ab2cb46eea8822fdbb1bd",
+  "name": "Robert Taylor",
+  "email": "robert.t@example.com",
+  "password": "MyStrongPass789",
+  "role": "admin",
+  "status": "active"
+}
+
+
+]

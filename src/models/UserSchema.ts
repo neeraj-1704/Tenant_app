@@ -1,34 +1,45 @@
 import mongoose from "mongoose";
-import { z } from "zod";
+import { optional, z } from "zod";
 
-// const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 
-//     tenantId: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: "Tenant",
-//         require: true
-//     },
-//     name: String,
-//     email: {
-//         type: String,
-//         require: true,
-//         unique: true
-//     },
-//     password: {
-//         type: String,
-//         required: true
-//     },
-//     role: {
-//         type: String,
-//         enum: ["admin", "sales", "manager"],
-//         default: "sales"
-//     }
-// }, {
-//     timestamps: true
-// })
+    tenantId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tenant",
+        require: true
+    },
+    name: String,
+    email: {
+        type: String,
+        require: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ["admin", "sales", "manager"],
+        default: "sales"
+    },
+    status: {
+        type: String,
+        enum: ["active", "suspended", "inactive"],
+        optional: true
+    },
+    lastLoginAt: {
+        type: Date
+    },
+    lastLoginIp: {
+        type: String
+    }
+}, {
+    timestamps: true
+})
 
 // // ✅ This prevents OverwriteModelError on hot reloads or multiple imports
-// export default  mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);
 
 
 export const registerUserSchema = z.object({
@@ -41,8 +52,8 @@ export const registerUserSchema = z.object({
         .regex(/[a-z]/, "Must include a lowercase letter")
         .regex(/[A-Z]/, "Must include an uppercase letter")
         .regex(/[0-9]/, "Must include a number"),
-    role: z.enum(["admin", "sales", "support"]).default("sales"),
-    status: z.enum(["active", "suspended"]).optional(),
+    role: z.enum(["admin", "sales", "manager"]).default("sales"),
+    status: z.enum(["active", "suspended","inactive"]).optional(),
     lastLoginAt: z.date().optional(),
     lastLoginIp: z.string().optional(),
 })

@@ -1,13 +1,20 @@
 import express, { Router } from 'express'
 import { createUser, loginUser, getUser } from "../controller/userController"
 import { requireAuth } from "../middlewares/auth";
+import {requireRole} from '../middlewares/requireRole'
 
 
+// Adding the Tentant Creation
+import { createTenant } from '../controller/TenantController'
+const tenantRoute = Router();
+tenantRoute.route('/add').post(createTenant);
 
+
+// Add the user register
 const routerUser = Router();
 routerUser.route("/register").post(createUser)
 routerUser.route("/login").post(loginUser)
-routerUser.route("/").post(requireAuth, getUser)
+routerUser.route("/").get(requireAuth, requireRole(["admin"]), getUser)
 
 
 
@@ -40,9 +47,10 @@ taskRoute.route("/task/delete").delete(requireAuth, deleteTask);
 
 // rate limiting , paginnations , sql injections , 
 
-export  {
+export {
     routerUser,
     customerUser,
     leadRoute,
-    taskRoute
+    taskRoute,
+    tenantRoute
 };

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Alice Johnson Industries",
+    "email": "alice.johnson@example.com",
+    "domain": "alicecorp.com",
+    "plan": "free"
+  },
+  {
+    "name": "BetaTech Solutions",
+    "email": "contact@betatech.io",
+    "domain": "betatech.io",
+    "plan": "premium"
+  },
+  {
+    "name": "GammaSoft Pvt Ltd",
+    "email": "admin@gammasoft.net",
+    "domain": "gammasoft.net",
+    "plan": "enterprise"
+  },
+  {
+    "name": "DeltaCorp Systems",
+    "email": "support@deltacorp.org",
+    "domain": "deltacorp.org",
+    "plan": "free"
+  }
+]
